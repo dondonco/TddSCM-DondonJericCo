@@ -17,14 +17,14 @@ public class EmployeeRepositoryTest {
     private EmployeeRepository employeeRepository;
     @Test
     @DisplayName("" +
-            "Given " +
-            "When " +
-            "Then ")
+            "Given the interface EmployeeRepository that extends JpaRepository<Employee, Long> " +
+            "When testFindAll is executed, employeeRepository will save the List.of(dondon, marvin, alejandro) " +
+            "Then the result will return dondon, marvin, alejandro")
     public void testFindAll() {
         //ARRANGE
         Employee dondon = new Employee("Dondon", 26, 50000d, "Jr. Software Engineer");
         Employee marvin = new Employee("Marvin", 27, 70000d, "Jr. Software Engineer");
-        Employee alejandro =new Employee("Alejandro", 25, 120000d, "Sr. Software Engineer");
+        Employee alejandro = new Employee("Alejandro", 25, 120000d, "Sr. Software Engineer");
         //ACT
         List<Employee> employees = employeeRepository.saveAll(List.of(dondon, marvin, alejandro));
         //ASSERT

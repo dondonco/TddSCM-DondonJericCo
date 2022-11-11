@@ -9,15 +9,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.Pageable;
-import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
@@ -38,13 +32,15 @@ public class EmployeeServiceTest {
     public void setup() {
         List<Employee> employees = List.of(dondon, marvin, alejandro);
         when(employeeRepository.findAll()).thenReturn(employees);
-        when(employeeService.getAllEmployeesEarningMoreThanAmount(60000d)).thenReturn(List.of(marvin, alejandro));
     }
+    // Dondon, 26, 50000, Jr. Software Engineer
+    // Marvin, 25, 70000, Jr. Software Engineer
+    // Alejandro, 26, 50000, Jr. Software Engineer
     @Test
     @DisplayName("" +
-            "Given " +
-            "When " +
-            "Then ")
+            "Given employees with the setup above " +
+            "When getAllEmployeesEarningMoreThanAmount(amount) is executed with amount = 60000d " +
+            "Then result should return marvin, alejandro")
     public void getAllEmployeesEarningMoreThanAmount() {
         //ARRANGE
         Double amount = 60000d;
@@ -55,11 +51,14 @@ public class EmployeeServiceTest {
         assertEquals(expected, result);
     }
 
+    // Dondon, 26, 50000, Jr. Software Engineer
+    // Marvin, 25, 70000, Jr. Software Engineer
+    // Alejandro, 26, 50000, Jr. Software Engineer
     @Test
     @DisplayName("" +
-            "Given " +
-            "When " +
-            "Then ")
+            "Given employees with the setup above " +
+            "When getAllEmployeesExceedingAge(age) is executed with age = 25 " +
+            "Then result should return dondon, marvin")
     public void getAllEmployeesExceedingAge() {
         //ARRANGE
         int age = 25;
@@ -71,11 +70,14 @@ public class EmployeeServiceTest {
 
     }
 
+    // Dondon, 26, 50000, Jr. Software Engineer
+    // Marvin, 25, 70000, Jr. Software Engineer
+    // Alejandro, 26, 50000, Jr. Software Engineer
     @Test
     @DisplayName("" +
-            "Given " +
-            "When " +
-            "Then ")
+            "Given employees with the setup above " +
+            "When getAllEmployeesWithMatchingPosition(position) is executed with position = Jr. Software Engineer " +
+            "Then result should return dondon, marvin")
     public void getAllEmployeesWithMatchingPosition() {
         //ARRANGE
         String position = "Jr. Software Engineer";
@@ -86,11 +88,14 @@ public class EmployeeServiceTest {
         assertEquals(expected, result);
     }
 
+    // Dondon, 26, 50000, Jr. Software Engineer
+    // Marvin, 25, 70000, Jr. Software Engineer
+    // Alejandro, 26, 50000, Jr. Software Engineer
     @Test
     @DisplayName("" +
-            "Given " +
-            "When " +
-            "Then ")
+            "Given employees with the setup above " +
+            "When getEmployeeWithHighestSalary() is executed " +
+            "Then result should return alejandro")
     public void getEmployeeWithHighestSalary() {
         //ARRANGE
         //ACT
