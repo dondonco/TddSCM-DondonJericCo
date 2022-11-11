@@ -29,15 +29,23 @@ public class EmployeeControllerTest {
     @Autowired
     private EmployeeController employeeController;
     @MockBean
+    private EmployeeRepository employeeRepository;
+    @MockBean
     private EmployeeService employeeService;
 
     private Employee dondon = new Employee("Dondon", 26, 50000d, "Jr. Software Engineer");
     private Employee marvin = new Employee("Marvin", 27, 70000d, "Jr. Software Engineer");
     private Employee alejandro = new Employee("Alejandro", 25, 120000d, "Sr. Software Engineer");
+    private List<Employee> employees;
 
 
-    @BeforeEach
-    public void setup() {
+    @Test
+    @DisplayName("" +
+            "Given " +
+            "When " +
+            "Then ")
+    public void sample() {
+
     }
 
     @Test
@@ -52,7 +60,7 @@ public class EmployeeControllerTest {
        //ACT
         when(employeeService.getAllEmployeesEarningMoreThanAmount(amount)).thenReturn(result);
         //ASSERT
-        mockMvc.perform(MockMvcRequestBuilders.get("/employees/amount/60000")
+        int code = mockMvc.perform(MockMvcRequestBuilders.get("/employees/amount/60000")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.jsonPath("$[0].name").value("Marvin"))
@@ -63,8 +71,9 @@ public class EmployeeControllerTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$[1].age").value(25))
                 .andExpect(MockMvcResultMatchers.jsonPath("$[1].salary").value(120000))
                 .andExpect(MockMvcResultMatchers.jsonPath("$[1].position").value("Sr. Software Engineer"))
-                .andExpect(status().isOk());
-        //assertEquals(200, code);
+                .andExpect(status().isOk())
+                .andReturn().getResponse().getStatus();
+        assertEquals(200, code);
     }
 
 
