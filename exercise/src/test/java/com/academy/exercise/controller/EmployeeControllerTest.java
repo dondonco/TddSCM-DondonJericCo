@@ -38,16 +38,6 @@ public class EmployeeControllerTest {
     private Employee alejandro = new Employee("Alejandro", 25, 120000d, "Sr. Software Engineer");
     private List<Employee> employees;
 
-
-    @Test
-    @DisplayName("" +
-            "Given " +
-            "When " +
-            "Then ")
-    public void sample() {
-
-    }
-
     @Test
     @DisplayName("" +
             "Given a get request with mapping of /employees/amount/60000," +
