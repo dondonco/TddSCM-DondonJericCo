@@ -35,7 +35,7 @@ public class EmployeeServiceTest {
     }
     // Dondon, 26, 50000, Jr. Software Engineer
     // Marvin, 25, 70000, Jr. Software Engineer
-    // Alejandro, 26, 50000, Jr. Software Engineer
+    // Alejandro, 26, 50000, Sr. Software Engineer
     @Test
     @DisplayName("" +
             "Given employees with the setup above " +
@@ -53,7 +53,7 @@ public class EmployeeServiceTest {
 
     // Dondon, 26, 50000, Jr. Software Engineer
     // Marvin, 25, 70000, Jr. Software Engineer
-    // Alejandro, 26, 50000, Jr. Software Engineer
+    // Alejandro, 26, 50000, Sr. Software Engineer
     @Test
     @DisplayName("" +
             "Given employees with the setup above " +
@@ -72,7 +72,7 @@ public class EmployeeServiceTest {
 
     // Dondon, 26, 50000, Jr. Software Engineer
     // Marvin, 25, 70000, Jr. Software Engineer
-    // Alejandro, 26, 50000, Jr. Software Engineer
+    // Alejandro, 26, 50000, Sr. Software Engineer
     @Test
     @DisplayName("" +
             "Given employees with the setup above " +
@@ -90,7 +90,7 @@ public class EmployeeServiceTest {
 
     // Dondon, 26, 50000, Jr. Software Engineer
     // Marvin, 25, 70000, Jr. Software Engineer
-    // Alejandro, 26, 50000, Jr. Software Engineer
+    // Alejandro, 26, 50000, Sr. Software Engineer
     @Test
     @DisplayName("" +
             "Given employees with the setup above " +
